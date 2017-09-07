@@ -83,6 +83,7 @@ $(function(){
 					$("#update-result").val(data.result);
 					$("#update-description").val(data.description);
 					$("#update-id").val(data.id);
+					WorkoutLog.log.updateDefinitions;
 				});
 			},
 			delete: function(){
@@ -132,9 +133,9 @@ $(function(){
 	});
 	//click the button and create a log entry
 	$("#log-save").on("click", WorkoutLog.log.create);
-	$("#history-list").delegate(".remove", "click", WorkoutLog.log.delete);
+	$("#history-list").on("click", ".remove",  WorkoutLog.log.delete);
 	$("#log-update").on("click", WorkoutLog.log.updateWorkout);
-	$("#history-list").delegate('.update', 'click', WorkoutLog.log.getWorkout);
+	$("#history-list").on('click', '.update', WorkoutLog.log.getWorkout);
 
 	//fetch history if we already are authenticated and refreshed
 	if (window.localStorage.getItem("sessionToken")){
