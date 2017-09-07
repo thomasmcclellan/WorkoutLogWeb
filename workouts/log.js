@@ -68,6 +68,8 @@ $(function(){
 					$("#update-description").val(data.description);
 					$("#update-id").val(data.id);
 				});
+				$("#history-list").children().remove();
+				$("#history-list").append(lis);
 			},
 			delete: function(){
 				var thisLog = {
