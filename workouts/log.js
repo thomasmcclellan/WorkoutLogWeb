@@ -83,7 +83,7 @@ $(function(){
 					$("#update-result").val(data.result);
 					$("#update-description").val(data.description);
 					$("#update-id").val(data.id);
-					WorkoutLog.log.updateDefinitions;
+					WorkoutLog.log.updateDefinitions();
 				});
 			},
 			delete: function(){
