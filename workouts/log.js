@@ -69,7 +69,7 @@ $(function(){
 
 			getWorkout: function(){
 				var thisLog = { id: $(this).attr("id")};
-				console.log(thisLog);
+				console.log("thisLog");
 				logID = thisLog.id;
 				var updateData = { log: thisLog };
 				var getLog = $.ajax({
