@@ -1,6 +1,6 @@
 $(function(){
 	var WorkoutLog = (function($, undefined){
-		var API_BASE = "https://equally-yoked-api.herokuapp.com/";
+		var API_BASE = "https://equally-yoked-api.herokuapp.com/api/";
 		var userDefinitions = []
 
 		var setAuthHeader = function(sessionToken){
