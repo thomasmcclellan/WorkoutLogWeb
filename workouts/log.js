@@ -51,6 +51,16 @@ $(function(){
 					$("a[href='#history']").tab("show");
 				});
 			},
+			updateDefinitions: function(){
+				var defs = WorkoutLog.definition.userDefinitions;
+				var len = defs.length;
+				var opts;
+				for (var i = 0; i < len; i++){
+					opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
+				}
+				$("#log-definition").children().remove();
+				$("#log-definition").append(opts);
+			},
 			getWorkout: function(){
 				var thisLog = { id: $(this).attr("id")};
 				console.log(thisLog);
@@ -68,8 +78,6 @@ $(function(){
 					$("#update-description").val(data.description);
 					$("#update-id").val(data.id);
 				});
-				$("#history-list").children().remove();
-				$("#history-list").append(lis);
 			},
 			delete: function(){
 				var thisLog = {
