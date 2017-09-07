@@ -6,27 +6,40 @@ $(function(){
 				var defs = WorkoutLog.definition.userDefinitions;
 				var len = defs.length;
 				var opts;
-				for (var i = 0; i < len; i++){
-					opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
-				}
+					for (var i = 0; i < len; i++){
+						opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
+					}
 				$("#log-definition").children().remove();
 				$("#log-definition").append(opts);
 			},
+
+			updateDefinitions: function(){
+				var defs = WorkoutLog.definition.userDefinitions;
+				console.log("test update-definition")
+				var len = defs.length;
+				var opts = "";
+					for (var i = 0; i < len; i++){
+						opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
+					}
+				$("#update-definition").children().remove();
+				$("#update-definition").append(opts);
+			},
+
 			setHistory: function() {
 				var history = WorkoutLog.log.workouts;
 				var len = history.length;
 				var lis = "";
 					for (var i = 0; i < len; i++) {
-					lis += "<li class='list-group-item'>" + 
-					// history[i].id + " - " + 
-					history[i].def + " - " + 
-					history[i].result + " " +
-					// pass the log.id into the button's id attribute // watch your quotes!
-					"<div class='pull-right'>" +
-						"<button id='" + history[i].id + "' class='update'><strong>U</strong></button>" +
-						"<button id='" + history[i].id + "' class='remove'><strong>X</strong></button>" +
-					"</div></li>";
-				}
+						lis += "<li class='list-group-item'>" + 
+						// history[i].id + " - " + 
+						history[i].def + " - " + 
+						history[i].result + " " +
+						// pass the log.id into the button's id attribute // watch your quotes!
+						"<div class='pull-right'>" +
+							"<button id='" + history[i].id + "' class='update'><strong>U</strong></button>" +
+							"<button id='" + history[i].id + "' class='remove'><strong>X</strong></button>" +
+						"</div></li>";
+					}	
 				$("#history-list").children().remove();
 				$("#history-list").append(lis);
 			},
@@ -51,16 +64,9 @@ $(function(){
 					$("a[href='#history']").tab("show");
 				});
 			},
-			updateDefinitions: function(){
-				var defs = WorkoutLog.definition.userDefinitions;
-				var len = defs.length;
-				var opts;
-				for (var i = 0; i < len; i++){
-					opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
-				}
-				$("#update-definition").children().remove();
-				$("#update-definition").append(opts);
-			},
+
+
+
 			getWorkout: function(){
 				var thisLog = { id: $(this).attr("id")};
 				console.log(thisLog);
@@ -97,12 +103,12 @@ $(function(){
 				//references button then grabs closest li
 				$(this).closest("li").remove();
 
-				//deletes item out of workouts array
-				for (var i = 0; i < WorkoutLog.log.workouts.length; i++){
-					if (WorkoutLog.log.workouts[i].id == thisLog.id){
-						WorkoutLog.log.workouts.splice(i, 1);
+					//deletes item out of workouts array
+					for (var i = 0; i < WorkoutLog.log.workouts.length; i++){
+						if (WorkoutLog.log.workouts[i].id == thisLog.id){
+							WorkoutLog.log.workouts.splice(i, 1);
+						}
 					}
-				}
 				deleteLog.fail(function(){
 					console.log("nope, you dind't delete it.");
 				});
@@ -115,12 +121,12 @@ $(function(){
 						"authorization": window.localStorage.getItem("sessionToken")
 					}
 				})
-				.done(function(data){
-					WorkoutLog.log.workouts = data;
-				})
-				.fail(function(err){
-					console.log(err);
-				});
+					.done(function(data){
+						WorkoutLog.log.workouts = data;
+					})
+					.fail(function(err){
+						console.log(err);
+					});
 			}
 		}
 	});
