@@ -91,7 +91,7 @@ $(function(){
 				$("#loginout").text("Login");
 			}
 
-			//TODO: on logout, make sure stuff is disabled
+			window.location.reload(true);
 		}
 	});
 	//bind events
