@@ -24,7 +24,7 @@
 			<li><a href="#define" class="disabled" data-toggle="tab">Define</a></li>
 			<li><a href="#log" class="disabled" data-toggle="tab">Log</a></li>
 			<li><a href="#history" class="disabled" data-toggle="tab">View History</a></li>
-			<a href="#update-log" data-toggle="tab" class="diabled" type="hidden"></a>
+			<a href="#update-log" data-toggle="tab" class="disabled" type="hidden"></a>
 		</ul>
 
 		<div class="container">
@@ -43,9 +43,19 @@
 
 				<!-- Define -->
 				<div class="tab-pane fade" id="define">
-				 	<h2>Do it!</h2>
+				 	<h2>Define your Workout!</h2>
 				 	<label for="def-description">Description</label>
-				 	<textarea class="form-control" id="def-description" rows="3"></textarea>
+			 	    <p></p>
+				    <ul class="workouts">
+				    	<li>Loading Workout...</li>
+				    </ul>
+				    <form class="add-items">
+				    	<input class="form-control" id="def-description" type="text" name="item" placeholder="Item Workout" required>
+				    	<input type="submit" value="+ Add New Workout">
+				    </form>
+					<br>
+
+				 	<!-- <textarea class="form-control" id="def-description" rows="3"></textarea> -->
 				 	<label for="def-logtype">Log Work by</label>
 				 	<select id="def-logtype" class="form-control">
 				 		<option>Time</option>
@@ -128,6 +138,18 @@
 							<input id="su_username"/>
 							<label for="su_password">Password:</label>
 							<input type="password" id="su_password"/>
+							<hr>
+							<label for="su_firstname">First Name:</label>
+							<input id="su_firstname"/>
+							<label for="su_lastname">Last Name:</label>
+							<input id="su_lastname"/>
+							<br>
+							<label for="su_age">Age:</label>
+							<input type="number" id="su_age"/>
+							<label for="su_gender">Gender:
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male 
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+							</label>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -138,10 +160,136 @@
 			</div>
 		</div>
 		
+		<style>
+			html {
+		      box-sizing: border-box;
+		      min-height:100vh;
+		      display:flex;
+		      justify-content: center;
+		      align-items: center;
+		      text-align: center;
+		      font-family: Futura,"Trebuchet MS",Arial,sans-serif
+		    }
+		    *, *:before, *:after {box-sizing: inherit; }
+
+		    svg {
+		      fill:white;
+		      background: rgba(0,0,0,0.1);
+		      padding: 20px;
+		      border-radius: 50%;
+		      width:200px;
+		      margin-bottom: 50px;
+		    }
+
+		    .wrapper {
+		      padding: 20px;
+		      max-width: 350px;
+		      background: rgba(255,255,255,0.95);
+		      box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+		    }
+
+		    h2 {
+		      text-align: center;
+		      margin: 0;
+		      font-weight: 200;
+		    }
+
+		    .workouts {
+		      margin: 0;
+		      padding: 0;
+		      text-align: left;
+		      list-style: none;
+		    }
+
+		    .workouts li {
+		      border-bottom: 1px solid rgba(0,0,0,0.2);
+		      padding: 10px 0;
+		      font-weight: 100;
+		      display: flex;
+		    }
+
+		    .workouts label {
+		      flex:1;
+		      cursor: pointer;
+
+		    }
+
+		    .workouts input {
+		      display: none;
+		    }
+
+		    .workouts input + label:before {
+		      content: '⬜️';
+		      margin-right: 10px;
+		    }
+
+		    .workouts input:checked + label:before {
+		      content: '☑️';
+		    }
+
+		    .add-items {
+		      margin-top: 20px;
+		    }
+
+		    .add-items input {
+		      padding:10px;
+		      outline:0;
+		      border:1px solid rgba(0,0,0,0.1);
+		    }
+		</style>
+
 		<!-- <script src="./app.js"></script>
 		<script src="./user/auth.js"></script>
 		<script src="./workouts/define.js"></script>
 		<script src="./workouts/log.js"></script> -->
 		<script src="./dist/bundle.js"></script>
+		<script>
+		  const addItems = document.querySelector('.add-items');
+		  const itemsList = document.querySelector('.workouts');
+		  const items = JSON.parse(localStorage.getItem('items')) || [];
+
+		  function addItem(e) {
+		    e.preventDefault();
+		    const text = (this.querySelector('[name=item]')).value;
+		    const item = {
+		      text,
+		      done: false
+		    };
+
+		    items.push(item);
+		    populateList(items, itemsList);
+		    localStorage.setItem('items', JSON.stringify(items));
+		    this.reset();
+		    // items.input.isChecked(true)
+		    console.log("stuff added")
+
+		  }
+
+		  function populateList(workouts = [], workoutsList) {
+		    workoutsList.innerHTML = workouts.map((workout, i) => {
+		      return `
+		        <li>
+		          <input type="checkbox" data-index=${i} id="item${i}" ${workout.done ? 'checked' : ''} />
+		          <label for="item${i}">${workout.text}</label>
+		        </li>
+		      `;
+		    }).join('');
+		  }
+
+		  function toggleDone(e) {
+		    if (!e.target.matches('input')) return; // skip this unless it's an input
+		    const el = e.target;
+		    const index = el.dataset.index;
+		    items[index].done = !items[index].done;
+		    localStorage.setItem('items', JSON.stringify(items));
+		    populateList(items, itemsList);
+		  }
+
+		  addItems.addEventListener('submit', addItem);
+		  itemsList.addEventListener('click', toggleDone);
+
+		  populateList(items, itemsList);
+
+		</script>
 	</body>
 </html>

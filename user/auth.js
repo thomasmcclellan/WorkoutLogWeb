@@ -5,11 +5,19 @@ $(function(){
 			//username and password variables
 			var username = $('#su_username').val();
 			var password = $('#su_password').val();
+			var firstName = $('#su_firstname').val();
+			var lastName = $('#su_lastname').val();
+			var age = $('#su_age').val();
+			var gender = $('#su_gender').val();
 			//user object
 			var user = {
 				user: {
 					username: username,
-					password: password
+					password: password,
+					firstName: firstName,
+					lastName: lastName,
+					age: age,
+					gender: gender
 				}
 			};
 
@@ -35,8 +43,14 @@ $(function(){
 					$('#signup-modal').modal('hide');
 					$('.disabled').removeClass('disabled');
 					$('#loginout').text('Logout');
+
 					$("#su_username").val("");
 					$("#su_password").val("");
+					$("#su_firstname").val("");
+					$("#su_lastname").val("");
+					$("#su_age").val("");
+					$("#su_gender").val("");
+					
 					//routing
 					$("a[href='#define']").tab('show');
 				})
