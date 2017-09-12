@@ -1,4 +1,5 @@
-$(function(){
+var idleInterval = 0;
+$(document).ready(function(){
 	var WorkoutLog = (function($, undefined){
 		// var API_BASE = "https://equally-yoked-api.herokuapp.com/api/";
 		var API_BASE = "http://localhost:3000/api/";

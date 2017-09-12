@@ -1,4 +1,6 @@
 $(function(){
+	// var userInfo = $('#su_firstname').val();
+	// console.log(userInfo)
 	$.extend(WorkoutLog, {
 		//signup method
 		signup: function(){
@@ -14,7 +16,7 @@ $(function(){
 				gender = $('#su_genderMale').val()
 			} else {
 				gender = $('#su_genderFemale').val()
-			};
+			}; 
 			//user object
 			// console.log(gender)
 			var user = {
@@ -27,7 +29,6 @@ $(function(){
 					gender: gender
 				}
 			};
-
 			//signup post
 			var signup = $.ajax({
 				type: "POST", 
@@ -50,7 +51,7 @@ $(function(){
 					$('#signup-modal').modal('hide');
 					$('.disabled').removeClass('disabled');
 					$('#loginout').text('Logout');
-					WorkoutLog.fillProfile(user.data);
+					$(WorkoutLog.fillProfile(data.user));
 
 					$("#su_username").val("");
 					$("#su_password").val("");
@@ -97,7 +98,7 @@ $(function(){
 					$("#login-modal").modal("hide");
 					$(".disabled").removeClass("disabled");
 					$("#loginout").text("Logout");
-					$(WorkoutLog.fillProfile(user));
+					$(WorkoutLog.fillProfile(data.user));
 
 					
 					$("#li_username").val("");
@@ -117,17 +118,34 @@ $(function(){
 			}
 		},
 		//Navbar fill in
-		fillProfile: function(user){
-			var navUser = user;
-			console.log(navUser)
-			// var newNav = "<li><a href='#'>Welcome " + navUser.firstName + "!</a></li>";
-			// $('#navbarMaster').append(newNav);
+		fillProfile: function(data){
+			var navUser = data;
+			var newNav = "<li><a href='#'>Welcome " + navUser.firstName + "!</a></li>";
+			$('#navbarMaster').append(newNav);
 		}
 	});
 	//bind events
 	$("#login").on("click", WorkoutLog.login);
 	$('#signup').on('click', WorkoutLog.signup);
 	$("#loginout").on("click", WorkoutLog.loginout);
+
+	var idleInterval = setInterval(timerIncrement, 5000);
+
+	$(this).mousemove(function(e){
+		idleTime = 0;
+	});
+	$(this).keypress(function(e){
+		idleTime = 0;
+	});
+
+	function timerIncrement(){
+		idleTime += 1;
+		if (idleTime > 3000 && window.localStorage.getItem('sessionToken')){ //20 minutes
+			alert("You have been logged out.  Please log back in to continue.");
+			WorkoutLog.loginout();
+			console.log('time inc work auth');
+		}
+	}
 
 	if (window.localStorage.getItem("sessionToken")){
 		$("#loginout").text("Login");
