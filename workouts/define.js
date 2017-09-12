@@ -22,7 +22,7 @@ $(function(){
 
 		      	define.done(function(data){
 					WorkoutLog.definition.userDefinitions.push(data.definition);
-					console.log(data.definition)
+					// console.log(data.definition)
 
 					$("#def-description").val("");
 					$("#def-logtype").val("");
@@ -44,7 +44,7 @@ $(function(){
 		         	WorkoutLog.definition.userDefinitions = data;
 		      	})
 		      	.fail(function(err) {
-		         	console.log(err);
+		         	// console.log(err);
 		      	});
 		  	}
 		}

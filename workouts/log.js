@@ -56,7 +56,7 @@ $(function(){
 			},
 			getWorkout: function(){
 				var thisLog = { id: $(this).attr("id")};
-				console.log("thisLog");
+				// console.log("thisLog");
 				logID = thisLog.id;
 				var updateData = { log: thisLog };
 				var getLog = $.ajax({
@@ -95,7 +95,7 @@ $(function(){
 				});
 
 				updater.done(function(data) {
-					console.log(data);
+					// console.log(data);
 					$("#update-description").val("");
 					$("#update-result").val("");
 					$('a[href="#history"]').tab("show");
@@ -126,7 +126,7 @@ $(function(){
 						}
 					}
 				deleteLog.fail(function(){
-					console.log("nope, you dind't delete it.");
+					// console.log("nope, you dind't delete it.");
 				});
 			},
 			fetchAll: function(){
@@ -141,7 +141,7 @@ $(function(){
 						WorkoutLog.log.workouts = data;
 					})
 					.fail(function(err){
-						console.log(err);
+						// console.log(err);
 					});
 			}
 		}

@@ -5,11 +5,18 @@ $(function(){
 			//username and password variables
 			var username = $('#su_username').val();
 			var password = $('#su_password').val();
+			
 			var firstName = $('#su_firstname').val();
 			var lastName = $('#su_lastname').val();
 			var age = $('#su_age').val();
-			var gender = $('#su_gender').val();
+			var gender; 
+			if ($('#su_genderMale').is(':checked')){
+				gender = $('#su_genderMale').val()
+			} else {
+				gender = $('#su_genderFemale').val()
+			};
 			//user object
+			// console.log(gender)
 			var user = {
 				user: {
 					username: username,
@@ -36,13 +43,14 @@ $(function(){
 						WorkoutLog.definition.fetchAll();
 						WorkoutLog.log.fetchAll();
 
-						console.log("You made it!");
-						console.log(data.sessionToken);
+						// console.log("You made it!");
+						// console.log(data.sessionToken);
 					}
 
 					$('#signup-modal').modal('hide');
 					$('.disabled').removeClass('disabled');
 					$('#loginout').text('Logout');
+					WorkoutLog.fillProfile(user.data);
 
 					$("#su_username").val("");
 					$("#su_password").val("");
@@ -50,7 +58,7 @@ $(function(){
 					$("#su_lastname").val("");
 					$("#su_age").val("");
 					$("#su_gender").val("");
-					
+
 					//routing
 					$("a[href='#define']").tab('show');
 				})
@@ -84,11 +92,13 @@ $(function(){
 						WorkoutLog.definition.fetchAll();
 						WorkoutLog.log.fetchAll();
 						
-						console.log(data.sessionToken);
+						// console.log(data.sessionToken);
 					}
 					$("#login-modal").modal("hide");
 					$(".disabled").removeClass("disabled");
 					$("#loginout").text("Logout");
+					$(WorkoutLog.fillProfile(user));
+
 					
 					$("#li_username").val("");
 					$("#li_password").val("");
@@ -103,9 +113,15 @@ $(function(){
 			if (window.localStorage.getItem("sessionToken")){
 				window.localStorage.removeItem("sessionToken");
 				$("#loginout").text("Login");
+				window.location.reload(true);
 			}
-
-			window.location.reload(true);
+		},
+		//Navbar fill in
+		fillProfile: function(user){
+			var navUser = user;
+			console.log(navUser)
+			// var newNav = "<li><a href='#'>Welcome " + navUser.firstName + "!</a></li>";
+			// $('#navbarMaster').append(newNav);
 		}
 	});
 	//bind events

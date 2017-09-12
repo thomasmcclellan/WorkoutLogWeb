@@ -17,13 +17,14 @@
 
 	</head>
 	<body>
-		<ul class="nav nav-tabs">
-			<li><a href="#home" id="loginout" class="disabled" data-toggle="tab">Logout</a>
+		<ul id="navbarMaster" class="nav nav-tabs">
+			<li><a href="#home" id="loginout" class="active" data-toggle="tab">Login</a>
 				<!-- Logout too -->
 			</li>
 			<li><a href="#define" class="disabled" data-toggle="tab">Define</a></li>
 			<li><a href="#log" class="disabled" data-toggle="tab">Log</a></li>
 			<li><a href="#history" class="disabled" data-toggle="tab">View History</a></li>
+			<!-- <li id="welcome" type="hidden"></li> -->
 			<a href="#update-log" data-toggle="tab" class="disabled" type="hidden"></a>
 		</ul>
 
@@ -147,8 +148,8 @@
 							<label for="su_age">Age:</label>
 							<input type="number" id="su_age"/>
 							<label for="su_gender">Gender:
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male 
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderMale" value="male"> Male 
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderFemale" value="female"> Female
 							</label>
 						</div>
 						<div class="modal-footer">
@@ -161,39 +162,6 @@
 		</div>
 		
 		<style>
-			html {
-		      box-sizing: border-box;
-		      min-height:100vh;
-		      display:flex;
-		      justify-content: center;
-		      align-items: center;
-		      text-align: center;
-		      font-family: Futura,"Trebuchet MS",Arial,sans-serif
-		    }
-		    *, *:before, *:after {box-sizing: inherit; }
-
-		    svg {
-		      fill:white;
-		      background: rgba(0,0,0,0.1);
-		      padding: 20px;
-		      border-radius: 50%;
-		      width:200px;
-		      margin-bottom: 50px;
-		    }
-
-		    .wrapper {
-		      padding: 20px;
-		      max-width: 350px;
-		      background: rgba(255,255,255,0.95);
-		      box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
-		    }
-
-		    h2 {
-		      text-align: center;
-		      margin: 0;
-		      font-weight: 200;
-		    }
-
 		    .workouts {
 		      margin: 0;
 		      padding: 0;
