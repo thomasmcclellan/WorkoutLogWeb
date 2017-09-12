@@ -6,8 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Equally Yoked</title>
-
+		
 		<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="./main.css">
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
@@ -16,7 +18,7 @@
 		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	</head>
-	<body>
+	<body id="body">
 		<ul id="navbarMaster" class="nav nav-tabs">
 			<li><a href="#home" id="loginout" class="active" data-toggle="tab">Login</a>
 				<!-- Logout too -->
@@ -29,7 +31,7 @@
 		</ul>
 
 		<div class="container">
-		    <div class="tab-content">
+		    <div class="tab-content row align-items-center">
 		      	<div class="tab-pane active" id="home">
 		        	<h2>Equally Yoked</h2>
 		        	<div id="forLogin">
@@ -112,10 +114,12 @@
 			        	</div>
 			        	<div class="modal-body">
 			          		<div class="alert alert-danger" style="display: none;" role="alert" id="li_error"></div>
-			          		<label for="li_username">Username:</label>
-			          		<input id="li_username" />
-			          		<label for="li_password">Password:</label>
-			          		<input type="password" id="li_password" />
+			          		<div class="modal-fields">
+				          		<label for="li_username">Username:</label>
+				          		<input id="li_username" class="active"/>
+				          		<label for="li_password">Password:</label>
+				          		<input type="password" id="li_password" />
+			          		</div>
 			        	</div>
 			        	<div class="modal-footer">
 			          		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -135,22 +139,24 @@
 						</div>
 						<div class="modal-body">
 							<div class="alert alert-danger" role="alert" style="display: none;" id="su_error"></div>
-							<label for="su_username">Username:</label>
-							<input id="su_username"/>
-							<label for="su_password">Password:</label>
-							<input type="password" id="su_password"/>
-							<hr>
-							<label for="su_firstname">First Name:</label>
-							<input id="su_firstname"/>
-							<label for="su_lastname">Last Name:</label>
-							<input id="su_lastname"/>
-							<br>
-							<label for="su_age">Age:</label>
-							<input type="number" id="su_age"/>
-							<label for="su_gender">Gender:
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderMale" value="male"> Male 
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderFemale" value="female"> Female
-							</label>
+							<div class="modal-fields">
+								<label for="su_username">Username:</label>
+								<input id="su_username" class="active" />
+								<label for="su_password">Password:</label>
+								<input type="password" id="su_password"/>
+								<hr>
+								<label for="su_firstname">First Name:</label>
+								<input id="su_firstname"/>
+								<label for="su_lastname">Last Name:</label>
+								<input id="su_lastname"/>
+								<br>
+								<label for="su_age">Age:</label>
+								<input type="number" id="su_age"/>
+								<label for="su_gender">Gender:
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderMale" value="male"> Male 
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderFemale" value="female"> Female
+								</label>
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -160,51 +166,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<style>
-		    .workouts {
-		      margin: 0;
-		      padding: 0;
-		      text-align: left;
-		      list-style: none;
-		    }
-
-		    .workouts li {
-		      border-bottom: 1px solid rgba(0,0,0,0.2);
-		      padding: 10px 0;
-		      font-weight: 100;
-		      display: flex;
-		    }
-
-		    .workouts label {
-		      flex:1;
-		      cursor: pointer;
-
-		    }
-
-		    .workouts input {
-		      display: none;
-		    }
-
-		    .workouts input + label:before {
-		      content: '⬜️';
-		      margin-right: 10px;
-		    }
-
-		    .workouts input:checked + label:before {
-		      content: '☑️';
-		    }
-
-		    .add-items {
-		      margin-top: 20px;
-		    }
-
-		    .add-items input {
-		      padding:10px;
-		      outline:0;
-		      border:1px solid rgba(0,0,0,0.1);
-		    }
-		</style>
 
 		<script src="./app.js"></script>
 		<script src="./user/auth.js"></script>

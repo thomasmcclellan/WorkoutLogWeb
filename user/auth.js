@@ -99,6 +99,7 @@ $(function(){
 					$('.invisible').removeClass('invisible');
 					$("#loginout").text("Logout");
 					$(WorkoutLog.fillProfile(data.user));
+					$('#body').css("background", "#212121");
 
 					
 					$("#li_username").val("");

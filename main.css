@@ -1,0 +1,89 @@
+/* General */
+body, html {
+	height: 100%;
+	background: url(./img/homeBackground.jpeg) no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#body {
+	background-color: #212121;
+	color: #bcbcbc;
+}
+
+/* Navbar */
+.nav-tabs {
+	color: #00e871;
+	text-decoration: none;
+}
+
+/* Home */
+.tab-content {
+	text-align: center;
+
+}
+
+/* Signup/Login Modals */
+.modal-fields {
+	text-align: center;
+	/*vertical-align: top;*/
+}
+
+/* Define */
+.workouts {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+.workouts li {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+  font-weight: 100;
+  display: flex;
+}
+
+.workouts label {
+  flex:1;
+  cursor: pointer;
+
+}
+
+.workouts input {
+  display: none;
+}
+
+.workouts input + label:before {
+  content: '⬜️';
+  margin-right: 10px;
+}
+
+.workouts input:checked + label:before {
+  content: '☑️';
+}
+
+.add-items {
+  margin-top: 20px;
+}
+
+.add-items input {
+  padding:10px;
+  outline:0;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+/* Log */
+
+
+/* History */
+
+
+/* Profile */
+
+
+/* Footer */
+
+
+
+
