@@ -49,7 +49,7 @@ $(function(){
 					}
 
 					$('#signup-modal').modal('hide');
-					$('.disabled').removeClass('disabled');
+					$('.invisible').removeClass('invisible');
 					$('#loginout').text('Logout');
 					$(WorkoutLog.fillProfile(data.user));
 
@@ -96,7 +96,7 @@ $(function(){
 						// console.log(data.sessionToken);
 					}
 					$("#login-modal").modal("hide");
-					$(".disabled").removeClass("disabled");
+					$('.invisible').removeClass('invisible');
 					$("#loginout").text("Logout");
 					$(WorkoutLog.fillProfile(data.user));
 
