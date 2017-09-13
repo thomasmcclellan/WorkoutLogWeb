@@ -52,6 +52,7 @@ $(function(){
 					$('.invisible').removeClass('invisible');
 					$('#loginout').text('Logout');
 					$(WorkoutLog.fillProfile(data.user));
+					$('#body').css("background", "#212121");
 
 					$("#su_username").val("");
 					$("#su_password").val("");
@@ -61,7 +62,7 @@ $(function(){
 					$("#su_gender").val("");
 
 					//routing
-					$("a[href='#define']").tab('show');
+$("a[href='#define']").tab('show');
 				})
 				.fail(function(){
 					$('#su_error').text("There was an issue with sign up").show();
@@ -104,7 +105,7 @@ $(function(){
 					
 					$("#li_username").val("");
 					$("#li_password").val("");
-					$("a[href='#define']").tab("show");
+$("a[href='#define']").tab("show");
 				})
 				.fail(function(){
 					$("#li_error").text("There was an issue with sign up").show();

@@ -48,17 +48,8 @@
 				<div class="tab-pane fade" id="define">
 				 	<h2>Define your Workout!</h2>
 				 	<label for="def-description">Description</label>
-			 	    <p></p>
-				    <ul class="workouts">
-				    	<li>Loading Workout...</li>
-				    </ul>
-				    <form class="add-items">
-				    	<input class="form-control" id="def-description" type="text" name="item" placeholder="Enter Workout" required>
-				    	<button type="submit" class="btn btn-primary">+ Add New Workout</button>
-				    </form>
 					<br>
-
-				 	<!-- <textarea class="form-control" id="def-description" rows="3"></textarea> -->
+				 	<textarea class="form-control" id="def-description"></textarea>
 				 	<label for="def-logtype">Log Work by</label>
 				 	<select id="def-logtype" class="form-control">
 				 		<option>Time</option>
@@ -167,59 +158,12 @@
 			</div>
 		</div>
 
-		<!-- <script src="./app.js"></script>
+		<script src="./app.js"></script>
 		<script src="./user/auth.js"></script>
 		<script src="./workouts/define.js"></script>
-		<script src="./workouts/log.js"></script> -->
+		<script src="./workouts/log.js"></script>
 		
-		<script src="./dist/bundle.js"></script>
-		<script>
-		  const addItems = document.querySelector('.add-items');
-		  const itemsList = document.querySelector('.workouts');
-		  const items = JSON.parse(localStorage.getItem('items')) || [];
+		<!-- <script src="./dist/bundle.js"></script> -->
 
-		  function addItem(e) {
-		    e.preventDefault();
-		    const text = (this.querySelector('[name=item]')).value;
-		    const item = {
-		      text,
-		      done: false
-		    };
-
-		    items.push(item);
-		    populateList(items, itemsList);
-		    localStorage.setItem('items', JSON.stringify(items));
-		    this.reset();
-		    // items.input.isChecked(true)
-		    console.log("stuff added")
-
-		  }
-
-		  function populateList(workouts = [], workoutsList) {
-		    workoutsList.innerHTML = workouts.map((workout, i) => {
-		      return `
-		        <li>
-		          <input type="checkbox" data-index=${i} id="item${i}" ${workout.done ? 'checked' : ''} />
-		          <label for="item${i}">${workout.text}</label>
-		        </li>
-		      `;
-		    }).join('');
-		  }
-
-		  function toggleDone(e) {
-		    if (!e.target.matches('input')) return; // skip this unless it's an input
-		    const el = e.target;
-		    const index = el.dataset.index;
-		    items[index].done = !items[index].done;
-		    localStorage.setItem('items', JSON.stringify(items));
-		    populateList(items, itemsList);
-		  }
-
-		  addItems.addEventListener('submit', addItem);
-		  itemsList.addEventListener('click', toggleDone);
-
-		  populateList(items, itemsList);
-
-		</script>
 	</body>
 </html>

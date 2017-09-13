@@ -1,8 +1,8 @@
 var idleInterval = 0;
 $(document).ready(function(){
 	var WorkoutLog = (function($, undefined){
-		var API_BASE = "https://equally-yoked-api.herokuapp.com/api/";
-		// var API_BASE = "http://localhost:3000/api/";
+		// var API_BASE = "https://equally-yoked-api.herokuapp.com/api/";
+		var API_BASE = "http://localhost:3000/api/";
 		var userDefinitions = []
 
 		var setAuthHeader = function(sessionToken){
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 	//Ensure .disabled aren't clickable
 	$(".nav-tabs a[data-toggle=tab]").on("click", function(e){
-		if ($(this).hasClass("disabled") && !token){
+		if ($(this).hasClass("invisible") && !token){
 			e.preventDefault();
 			return false;
 		}

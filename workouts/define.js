@@ -6,11 +6,11 @@ $(function(){
 			create: function(){
 
 				var def = { 
-	         		desc: $("#def-description").val(),
+	         		description: $("#def-description").val(),
 					type: $("#def-logtype").val()
 				};
 				var postData = { definition: def };		
-
+				console.log(def)
 				// console.log(postData)
 
 		      	var define = $.ajax({
@@ -26,7 +26,7 @@ $(function(){
 
 					$("#def-description").val("");
 					$("#def-logtype").val("");
-					$("a[href='#log']").tab("show");
+$("a[href='#log']").tab("show");
 				});
 			},
 
