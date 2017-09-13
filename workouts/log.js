@@ -15,7 +15,6 @@ $(function(){
 			// 	$("#update-definition").append(opts);
 
 			// },
-			
 			create: function(){
 				var itsLog = {
 					description: $("#log-description").val(),
