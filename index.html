@@ -23,7 +23,7 @@
 			<li><a href="#home" id="loginout" class="active" data-toggle="tab">Login</a>
 				<!-- Logout too -->
 			</li>
-			<li><a href="#define" class="invisible" data-toggle="tab">Define</a></li>
+			<!-- <li><a href="#define" class="invisible" data-toggle="tab">Define</a></li> -->
 			<li><a href="#log" class="invisible" data-toggle="tab">Log</a></li>
 			<li><a href="#history" class="invisible" data-toggle="tab">View History</a></li>
 			<!-- <li id="welcome" type="hidden"></li> -->
@@ -63,7 +63,7 @@
 				<div class="tab-pane fade" id="log">
 				 	<h2>Log it!</h2>
 				 	<label>Workout Select:</label>
-				 	<select class="form-control" id="log-definition">	
+<textarea class="form-control" id="log-definition"></textarea>	
 				 	</select>
 				 	<label>Result</label>
 				 	<input type="text" class="form-control" id="log-result"/>
@@ -76,7 +76,7 @@
 				<div class="tab-pane fade" id="update-log">
 				 	<h2>Update it!</h2>
 				 	<label>Workout Select</label>
-				 	<select class="form-control" id="update-definition">
+<select class="form-control" id="update-definition">
 				 	</select>
 				 	<label>Result</label>
 				 	<input type="hidden" class="form-control" id="update-id"/>
@@ -157,10 +157,10 @@
 				</div>
 			</div>
 		</div>
+		<!-- <script src="./workouts/define.js"></script> -->
 
 		<script src="./app.js"></script>
 		<script src="./user/auth.js"></script>
-		<script src="./workouts/define.js"></script>
 		<script src="./workouts/log.js"></script>
 		
 		<!-- <script src="./dist/bundle.js"></script> -->
