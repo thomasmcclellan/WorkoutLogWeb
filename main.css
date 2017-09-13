@@ -8,8 +8,8 @@ body, html {
 
 #body {
 	background-color: #212121;
-	color: #bcbcbc;
-}
+/*	color: #bcbcbc;
+*/}
 
 /* Navbar */
 .nav-tabs {
@@ -18,9 +18,8 @@ body, html {
 }
 
 /* Home */
-.tab-content {
+#home {
 	text-align: center;
-
 }
 
 /* Signup/Login Modals */
@@ -29,11 +28,18 @@ body, html {
 	/*vertical-align: top;*/
 }
 
-/* Define */
-
-
 /* Log */
+#log {
+	background-color: #bcbcbc;
+	border-radius: 0.5em;
+	color: #212121;
+	margin-right: auto;
+	margin-left: auto;
+}
 
+#log .form-control {
+
+}
 
 /* History */
 

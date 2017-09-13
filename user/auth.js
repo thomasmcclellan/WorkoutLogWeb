@@ -50,6 +50,7 @@ $(function(){
 
 					$('#signup-modal').modal('hide');
 					$('.invisible').removeClass('invisible');
+					$('#home').addClass('invisible');
 					$('#loginout').text('Logout');
 					$(WorkoutLog.fillProfile(data.user));
 					$('#body').css("background", "#212121");
@@ -98,6 +99,7 @@ $("a[href='#log']").tab('show');
 					}
 					$("#login-modal").modal("hide");
 					$('.invisible').removeClass('invisible');
+					$('#home').addClass('invisible');
 					$("#loginout").text("Logout");
 					$(WorkoutLog.fillProfile(data.user));
 					$('#body').css("background", "#212121");
