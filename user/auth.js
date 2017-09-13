@@ -41,7 +41,7 @@ $(function(){
 				.done(function(data){
 					if (data.sessionToken){
 						WorkoutLog.setAuthHeader(data.sessionToken);
-						WorkoutLog.definition.fetchAll();
+						// WorkoutLog.definition.fetchAll();
 						WorkoutLog.log.fetchAll();
 
 						// console.log("You made it!");
@@ -62,7 +62,7 @@ $(function(){
 					$("#su_gender").val("");
 
 					//routing
-$("a[href='#define']").tab('show');
+$("a[href='#log']").tab('show');
 				})
 				.fail(function(){
 					$('#su_error').text("There was an issue with sign up").show();
@@ -91,7 +91,7 @@ $("a[href='#define']").tab('show');
 				.done(function(data){
 					if (data.sessionToken){
 						WorkoutLog.setAuthHeader(data.sessionToken);
-						WorkoutLog.definition.fetchAll();
+						// WorkoutLog.definition.fetchAll();
 						WorkoutLog.log.fetchAll();
 						
 						// console.log(data.sessionToken);
@@ -105,7 +105,7 @@ $("a[href='#define']").tab('show');
 					
 					$("#li_username").val("");
 					$("#li_password").val("");
-$("a[href='#define']").tab("show");
+$("a[href='#log']").tab("show");
 				})
 				.fail(function(){
 					$("#li_error").text("There was an issue with sign up").show();
