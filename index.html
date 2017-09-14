@@ -9,17 +9,21 @@
 		
 		<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-		<link rel="stylesheet" href="./main.css">
-
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+		<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet">
+
+		<link rel="stylesheet" href="./main.css">
+
 	</head>
 	<body id="body">
 		<ul id="navbarMaster" class="nav nav-tabs">
+			<li class="navbar-brand">Equally Yoked</li>
 			<li><a href="#home" id="loginout" class="active" data-toggle="tab">Login</a>
 				<!-- Logout too -->
 			</li>
@@ -33,7 +37,7 @@
 		<div class="container">
 		    <div class="tab-content ">
 		      	<div class="tab-pane active row align-items-center" id="home">
-		        	<h2>Equally Yoked</h2>
+		        	<h1>Equally Yoked</h1>
 		        	<div id="forLogin">
 		          		<!-- have the class build the modals for these http://getboostrap.com/javascript/#modals -->
 		          		<button data-toggle="modal" data-target="#login-modal" class="btn btn-primary">Login</button>
@@ -45,18 +49,17 @@
 		      	</div>
 
 				<!-- Log -->
-				<div class="row justify-content-center">
-					<div class="tab-pane fade col-md-6" id="log">
-					 	<div class="" id="logContent">
-						 	<h2>Log it!</h2>
-						 	<label>Workout Select:</label>
-							<input type="text" class="form-control" id="log-definition">
-						 	<label>Result</label>
-						 	<input type="text" class="form-control" id="log-result"/>
-							<label>Notes</label>
-							<textarea class="form-control" id="log-description" rows="3"></textarea>
-							<button id="log-save" class="btn btn-primary">Save</button>
-						</div>
+				
+				<div class="tab-pane fade" id="log">
+				 	<div id="logContent">
+					 	<h2>Log Your Workout!</h2>
+					 	<label class="pull-left">Workout Select:</label>
+						<input type="text" class="form-control" id="log-definition">
+					 	<label class="pull-left">Duration:</label>
+					 	<input type="text" class="form-control" id="log-result"/>
+						<label class="pull-left">Notes:</label>
+						<textarea class="form-control" id="log-description" rows="3"></textarea>
+						<button id="log-save" class="btn btn-primary center-block">Save</button>
 					</div>
 				</div>
 
@@ -72,7 +75,7 @@
 				 	<label>Notes</label>
 				 	<textarea class="form-control" id="update-description" rows="3"></textarea>
 				 	<br>
-				 	<button id="log-update" class="btn btn-primary">Save</button>
+				 	<button id="log-update" class="btn btn-primary center-block">Save</button>
 				</div>
 
 				<!-- History -->
@@ -96,6 +99,7 @@
 			          		<div class="modal-fields">
 				          		<label for="li_username">Username:</label>
 				          		<input id="li_username" class="active"/>
+				          		<br>
 				          		<label for="li_password">Password:</label>
 				          		<input type="password" id="li_password" />
 			          		</div>
@@ -121,16 +125,19 @@
 							<div class="modal-fields">
 								<label for="su_username">Username:</label>
 								<input id="su_username" class="active" />
+								<br>
 								<label for="su_password">Password:</label>
 								<input type="password" id="su_password"/>
 								<hr>
 								<label for="su_firstname">First Name:</label>
 								<input id="su_firstname"/>
+								<br>
 								<label for="su_lastname">Last Name:</label>
 								<input id="su_lastname"/>
 								<br>
 								<label for="su_age">Age:</label>
 								<input type="number" id="su_age"/>
+								<br>
 								<label for="su_gender">Gender:
 									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderMale" value="male"> Male 
 									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="su_genderFemale" value="female"> Female
@@ -147,11 +154,11 @@
 		</div>
 		<!-- <script src="./workouts/define.js"></script> -->
 
-		<!-- <script src="./app.js"></script>
+		<script src="./app.js"></script>
 		<script src="./user/auth.js"></script>
-		<script src="./workouts/log.js"></script> -->
+		<script src="./workouts/log.js"></script>
 		
-		<script src="./dist/bundle.js"></script>
+		<!-- <script src="./dist/bundle.js"></script> -->
 
 	</body>
 </html>

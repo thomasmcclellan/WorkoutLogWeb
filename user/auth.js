@@ -102,7 +102,7 @@ $("a[href='#log']").tab('show');
 					$('#home').addClass('invisible');
 					$("#loginout").text("Logout");
 					$(WorkoutLog.fillProfile(data.user));
-					$('#body').css("background", "#212121");
+					// $('#body').css("background", "#212121");
 
 					
 					$("#li_username").val("");
@@ -124,7 +124,7 @@ $("a[href='#log']").tab("show");
 		//Navbar fill in
 		fillProfile: function(data){
 			var navUser = data;
-			var newNav = "<li><a href='#'>Welcome " + navUser.firstName + "!</a></li>";
+			var newNav = "<li id='welcome' class='pull-right'>Welcome " + navUser.firstName + "!</li>";
 			$('#navbarMaster').append(newNav);
 		}
 	});

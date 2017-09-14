@@ -4,20 +4,86 @@ body, html {
 	background: url(./img/homeBackground.jpeg) no-repeat center center;
 	background-size: cover;
 	background-attachment: fixed;
+	font-family: Geo, sans-serif;
+	font-size: 16px;
+}
+
+.btn-primary {
+	background-color: #00e871;
+	color: #212121;
+	border-color: #00e871;
+	text-transform: uppercase;
+	font-family: Montserrat Subrayada, cursive;
+}
+
+.btn-primary:active {
+	background-color: #212121;
+	color: #bcbcbc;
+	border-color: #00e871;
+	text-transform: uppercase;
+	font-family: Montserrat Subrayada, cursive;
+}
+
+.btn-primary:focus {
+	background-color: #212121;
+	color: #bcbcbc;
+	border-color: #00e871;
+	text-transform: uppercase;
+	font-family: Montserrat Subrayada, cursive;
+}
+
+.btn-primary:hover {
+	background-color: #212121;
+	color: #bcbcbc;
+	border-color: #00e871;
+	text-transform: uppercase;
+	font-family: Montserrat Subrayada, cursive;
 }
 
 #body {
 	background-color: #212121;
-/*	color: #bcbcbc;
-*/}
+}
+
+h1, h2, label {
+	font-family: Montserrat Subrayada, cursive;
+}
 
 /* Navbar */
 .nav-tabs {
+	background-color: #212121;
+	height: 45px;
+}
+
+.nav-tabs li a {
 	color: #00e871;
-	text-decoration: none;
+	vertical-align: bottom;
+	font-family: Montserrat Subrayada, cursive;
+}
+
+.navbar-brand {
+	color: #00e871;
+	font-family: Montserrat Subrayada, cursive;
+	padding-top: 11px;
+}
+
+#loginout {
+	color: #bcbcbc;
+}
+
+#welcome {
+	color: #00e871;
+	font-size: 24px;
+	font-family: Montserrat Subrayada, cursive;
+	vertical-align: bottom;
+	padding-right: 10px;
+	padding-top: 5px;
 }
 
 /* Home */
+.tab-content {
+	text-align: center;
+}
+
 #home {
 	text-align: center;
 }
@@ -33,16 +99,40 @@ body, html {
 	background-color: #bcbcbc;
 	border-radius: 0.5em;
 	color: #212121;
-	margin-right: auto;
-	margin-left: auto;
+	padding-top: 0.25em;
+	padding-bottom: 1em;
+	margin-top: 1.5em;
 }
 
-#log .form-control {
+#logContent {
+	margin: auto 2em;
+}
 
+#log-save {
+	margin: 1em auto;
 }
 
 /* History */
+#history {
+	background-color: #bcbcbc;
+	border-radius: 0.5em;
+	color: #212121;
+	padding-top: 0.25em;
+	margin-top: 1.5em;
+}
 
+#history li {
+	height: 4em;
+}
+
+#history ul {
+	margin: auto 2em;
+	padding-bottom: 2em;
+}
+
+#history button {
+	padding-top: 0.5em;
+}
 
 /* Profile */
 

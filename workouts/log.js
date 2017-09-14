@@ -2,19 +2,16 @@ $(function(){
 	$.extend(WorkoutLog, {
 		log: {
 			workouts: [],
-			// setDefinitions: function(){
-			// 	var defs = WorkoutLog.definition.userDefinitions;
-			// 	var len = defs.length;
-			// 	var opts;
-			// 		for (var i = 0; i < len; i++){
-			// 			opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
-			// 		}
-			// 	// $("#log-definition").children().remove();
-			// 	// $("#log-definition").append(opts);
-			// 	$("#update-definition").children().remove();
-			// 	$("#update-definition").append(opts);
-
-			// },
+			setDefinitions: function(){
+				var defs = WorkoutLog.log.workouts.create;
+				var len = defs.length;
+				var opts;
+					for (var i = 0; i < len; i++){
+						opts += "<option value='" + defs[i].id + "'>" + defs[i].description + "</option>";
+					}
+				$("#update-definition").children().remove();
+				$("#update-definition").append(opts);
+			},
 			create: function(){
 				var itsLog = {
 					description: $("#log-description").val(),
@@ -47,12 +44,14 @@ $(function(){
 				for (var i = 0; i < len; i++) {
 					lis += "<li class='list-group-item'>" + 
 					// history[i].id + " - " + 
-					history[i].def + " - " + 
+					history[i].def + " ♦︎ " + 
 					history[i].result + " " +
 					// pass the log.id into the button's id attribute // watch your quotes!
 					"<div class='pull-right'>" +
-						"<button id='" + history[i].id + "' class='update'><strong>U</strong></button>" +
-						"<button id='" + history[i].id + "' class='remove'><strong>X</strong></button>" +
+						"<button id='" + history[i].id + "' class='update btn btn-primary'><strong>Update Workout</strong></button>" +
+					"</div>" +
+					"<div class='pull-left'>" +
+						"<button id='" + history[i].id + "' class='remove btn btn-primary'><strong>Delete Workout</strong></button>" +
 					"</div></li>";
 				}	
 				$("#history-list").children().remove();
@@ -74,6 +73,7 @@ $(function(){
 					$("#update-result").val(data.result);
 					$("#update-description").val(data.description);
 					$("#update-id").val(data.id);
+					$("#update-definition").text(data.def);
 				});
 			},
 			updateWorkout: function() {
@@ -81,8 +81,8 @@ $(function(){
 				var updateLog = { 
 					id: $('#update-id').val(),
 					desc: $("#update-description").val(),
-						result: $("#update-result").val(),
-						def: $("#update-definition option:selected").text()
+					result: $("#update-result").val(),
+					def: $("#update-definition option:selected").text()
 				};
 				for(var i = 0; i < WorkoutLog.log.workouts.length; i++){
 					if(WorkoutLog.log.workouts[i].id == updateLog.id){
